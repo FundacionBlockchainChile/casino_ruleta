@@ -1,5 +1,5 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
 
 <script>
         var pusher = new Pusher('b83ca9db118f5993e589', {
@@ -8,22 +8,26 @@
         });
 </script>
 
+<h1 style="margin-top: 20px;">Jugadores Activos</h1>
 
-  <div id="jugadores_section">
+  <div id="jugadores_section" class="row row-cols-1 row-cols-md-5 g-4 p-4">
     <% @jugadores.each do |jugador| %>
-      <div class="card m-4" style="width: 18rem; color:black;">
-        <div class="card-title">
-          <h2><%= jugador.nombre %></h2>
-        </div>
-        <div class="card-body">
-          <p>Email: <%= jugador.email %></p>
-          <p>Billetera: <%= jugador.total_billetera %></p>
-          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
-          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+      <div class="col">
+        <div class="card " style="width: 15rem; color:black;">
+          <div class="card-title">
+            <h2><%= jugador.nombre %></h2>
+          </div>
+          <div class="card-body">
+            <p>Email: <%= jugador.email %></p>
+            <p>Billetera: <%= jugador.total_billetera %></p>
+            <a href="#" class="btn btn-primary btn-sm">Apostar</a>
+            <a href="#" class="btn btn-primary btn-sm">Abandonar Mesa</a>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
+
 
 
 
@@ -38,17 +42,19 @@
     let div = document.getElementById('jugadores_section');
     let new_content = document.createElement("div");
     new_content.innerHTML = `
-    <div class="card m-4" style="width: 18rem; color:black;">
+    <div class="col">
+      <div class="card" style="width: 15rem; color:black;">
         <div class="card-title">
           <h2>${jugador_nombre}</h2>
         </div>
         <div class="card-body">
           <p>Email: ${jugador_email}</p>
           <p>Billetera: ${jugador_total_billetera}</p>
-          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
-          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+          <a href="#" class="btn btn-primary btn-sm">Apostar</a>
+          <a href="#" class="btn btn-primary btn-sm">Abandonar Mesa</a>
         </div>
-      </div>`;
+      </div>
+    </div>`;
     div.insertBefore(new_content, div.firstChild);
     });
 </script>

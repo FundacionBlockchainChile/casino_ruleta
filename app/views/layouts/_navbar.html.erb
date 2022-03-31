@@ -1,0 +1,33 @@
+<nav
+  class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark"
+  style="background: black"
+>
+  <div class="container">
+    <h1><%= link_to "Casino", root_path, :class => "nav-link active" %> </h1>
+    
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%# <ul class="navbar-nav mb-2 mb-lg-0">
+        
+      </ul> %>
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+        <li class="nav-item">
+          <%= link_to "Ruleta", root_path, :class => "nav-link active" %>          
+        </li>
+        <li class="nav-item">
+          <%= link_to "Administrar Jugadores", jugador_create_path, :class => "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
