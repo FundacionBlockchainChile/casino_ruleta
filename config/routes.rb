@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'jugador/create'
+  post 'jugador/store'
+  root 'home#index'
 
-  # Defines the root path route ("/")
-  root "application#index"
+  # root "application#index"
 end

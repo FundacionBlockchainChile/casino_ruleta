@@ -1,2 +1,54 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<script>
+        var pusher = new Pusher('b83ca9db118f5993e589', {
+          cluster: 'us2',
+          encrypted: true
+        });
+</script>
+
+
+  <div id="jugadores_section">
+    <% @jugadores.each do |jugador| %>
+      <div class="card m-4" style="width: 18rem; color:black;">
+        <div class="card-title">
+          <h2><%= jugador.nombre %></h2>
+        </div>
+        <div class="card-body">
+          <p>Email: <%= jugador.email %></p>
+          <p>Billetera: <%= jugador.total_billetera %></p>
+          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+<script>
+  var channel = pusher.subscribe('jugadores-channel');
+  channel.bind('new-jugador', function(data) {
+    let jugador_id = data.id
+    let jugador_nombre = data.nombre;
+    let jugador_email = data.email;
+    let jugador_total_billetera = data.total_billetera;
+
+    let div = document.getElementById('jugadores_section');
+    let new_content = document.createElement("div");
+    new_content.innerHTML = `
+    <div class="card m-4" style="width: 18rem; color:black;">
+        <div class="card-title">
+          <h2>${jugador_nombre}</h2>
+        </div>
+        <div class="card-body">
+          <p>Email: ${jugador_email}</p>
+          <p>Billetera: ${jugador_total_billetera}</p>
+          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+          <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+        </div>
+      </div>`;
+    div.insertBefore(new_content, div.firstChild);
+    });
+</script>
