@@ -11,6 +11,7 @@ class JugadorController < ApplicationController
 
   # PATCH/PUT /jugadors/1 or /jugadors/1.json
   def update
+    byebug
     respond_to do |format|
       if @jugador.update(jugador_params)
         format.html { redirect_to jugador_url(@jugador), notice: "Jugador was successfully updated." }

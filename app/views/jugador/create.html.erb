@@ -45,7 +45,7 @@
           <td><%= jugador.nombre %></td>
           <td><%= jugador.email %></td>
           <td><%= jugador.total_billetera %></td>
-          <td><%= link_to 'Edit', root_path(jugador), data: { "turbo-method": :patch, confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %></td>          
+          <td><%= link_to 'Edit', jugador_path(jugador), data: { "turbo-method": :patch, confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %></td>          
           <td><%= link_to "Delete", jugador_path(jugador), data: { "turbo-method": :delete, confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>          
         </tr>
       <% end %>

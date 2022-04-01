@@ -30,6 +30,8 @@ gem "jbuilder"
 # adding Pusher to Gemfile
 gem 'pusher'
 
+gem 'byebug'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
