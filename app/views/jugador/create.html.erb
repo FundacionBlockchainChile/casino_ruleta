@@ -1,28 +1,54 @@
-<div>
-  <h1>Live Players</h1>
-  <p>Edicion de Jugadores</p>
-</div>
 
-<div class="container p-4 bg-success" style="text-align: center; max-width: 600px; border: 1px solid white;border-radius: 20px;">
+<% if notice %>
+  <p id="notice" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </p>
+<% end %>
+
+
+<div class="container p-4 bg-success my-4" style="text-align: center; max-width: 900px; border: 1px solid white;border-radius: 20px;">
+  <h1>Ingresar Nuevo Jugador</h1>
   <p><strong>LLena y Suscribe el formulario para crear un nuevo Jugador</strong></p>
 
-  <form method="POST" action="/jugador/store" enctype="multipart/form-data">
-    <%= token_tag %>
-
+  <form method="POST" action="/jugador/store" enctype="multipart/form-data">    
     <div class="form-group my-4">
       <label for="nombre">Nombre</label>
-      <input type="text" name="nombre" class="form-control" />
+      <input type="text" name="nombre" class="form-control" style="max-width: 400px;margin:auto;" />
     </div>
     <div class="form-group my-4">
       <label for="email">Email</label>
-      <input type="email" name="email" class="form-control" />
-    </div>
-    <div class="form-group my-4">
-      <label for="total_billetera">Dinero en Billetera</label>
-      <input type="text" name="total_billetera" class="form-control" />
+      <input type="email" name="email" class="form-control" style="max-width: 400px;margin:auto;" />
     </div>
     <div class="from-group">
       <div><input type="submit" value="Crear Nuevo Jugador" class="btn btn-danger"/></div>
     </div>
   </form>
+
+</div>
+
+<div class="container my-4" style="text-align: center; max-width: 900px; border: 1px solid white;border-radius: 20px;">
+  <h1>Jugadores Activos</h1>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Billetera</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @jugadores.each do |jugador| %>
+        <tr> 
+          <td><%= jugador.nombre %></td>
+          <td><%= jugador.email %></td>
+          <td><%= jugador.total_billetera %></td>
+          <td><%= link_to 'Edit', root_path(jugador), data: { "turbo-method": :patch, confirm: "Are you sure?" }, class: "btn btn-warning btn-sm" %></td>          
+          <td><%= link_to "Delete", jugador_path(jugador), data: { "turbo-method": :delete, confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
