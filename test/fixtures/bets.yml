@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  round: one
+  jugador: one
+  jugador_name: MyString
+  bet_ammount: 1
+  bet_number: 1
+
+two:
+  round: two
+  jugador: two
+  jugador_name: MyString
+  bet_ammount: 1
+  bet_number: 1

@@ -1,0 +1,2 @@
+class Roullette < ApplicationRecord
+end

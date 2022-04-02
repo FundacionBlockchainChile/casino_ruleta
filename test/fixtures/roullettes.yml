@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  roullette_wallet: 1
+  time_delay: 1
+  max_temp_week: 1.5
+  conservative_bets: false
+
+two:
+  roullette_wallet: 1
+  time_delay: 1
+  max_temp_week: 1.5
+  conservative_bets: false
