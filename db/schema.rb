@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+Juga
   create_table "roullettes", force: :cascade do |t|
     t.integer "roullette_wallet"
     t.integer "time_delay"
