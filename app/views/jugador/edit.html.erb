@@ -7,28 +7,4 @@
 
 
 <h1>Editar Jugador</h1>
-<% if @jugador.errors.any? %>
-  <h2>The following errors prevented the jugador from saving:</h2>
-  <ul>
-  <% @jugador.errors.full_messages.each do |msg|%>
-  <li><%= msg %></li>
-  <% end %>
-  </ul>  
-<% end %>
-<%= form_for @jugador do |f| %>
- <p>
-  <%= f.label :nombre %><br>
-  <%= f.text_field :nombre %>
- </p>
- <p>
-  <%= f.label :email %><br>
-  <%= f.email_field :email %>
- </p>
-  <p>
-  <%= f.label :total_billetera %><br>
-  <%= f.number_field :total_billetera %>
- </p>
- <p>
-  <%= f.submit %>
- </p>
-<% end %>
+<%= render 'form' %>

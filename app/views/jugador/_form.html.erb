@@ -1,0 +1,27 @@
+<div class="container p-4 bg-success my-4" style="text-align: center; max-width: 900px; border: 1px solid white;border-radius: 20px;">
+<% if @jugador.errors.any? %>
+  <h2>The following errors prevented the jugador from saving:</h2>
+  <ul>
+  <% @jugador.errors.full_messages.each do |msg|%>
+  <li><%= msg %></li>
+  <% end %>
+  </ul>  
+<% end %>
+<%= form_for @jugador do |f| %>
+ <div class="form-group my-4">
+  <%= f.label :nombre %><br>
+  <%= f.text_field :nombre, :class => 'form-control', style: 'max-width: 400px;margin:auto;' %>
+ </div>
+ <div class="form-group my-4">
+  <%= f.label :email %><br>
+  <%= f.email_field :email, :class => 'form-control', style: 'max-width: 400px;margin:auto;' %>
+  </div>  
+  <div class="form-group my-4">
+  <%= f.label :total_billetera %><br>
+  <%= f.number_field :total_billetera, :class => 'form-control', style: 'max-width: 400px;margin:auto;' %>
+ </div>
+ <div class="form-group">
+  <%= f.submit "Actualizar Usuario", class: 'btn btn-danger' %>
+ </div>
+<% end %>
+</div>

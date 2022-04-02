@@ -21,3 +21,11 @@ nav {
   background-size: cover;
   opacity: 0.6;
 }
+
+.content_box {
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 1200px;
+}

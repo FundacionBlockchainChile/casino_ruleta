@@ -2,30 +2,10 @@ class JugadorController < ApplicationController
   before_action :set_jugador, only: %i[ show edit update destroy ]
 
   def new  #GET
-    @jugadores = Jugador.all
     @jugador = Jugador.new
   end
   
   def create #POST
-    @jugador.create!(jugador_params)
-  end
-
-  def edit #GET
-    @jugador = Jugador.find_by_id(params[:id])
-  end
-
-  def update #PUT/PATCH
-    @jugador = Jugador.find(params[:id])
-    if @jugador.update(jugador_params)
-     flash[:notice] = "Jugador actualizado"
-     redirect_to root_path
-    else
-      flash[:notice] = "Ops. Hubo un problema"
-      redirect_to jugador_create_path
-    end
-  end
-
-  def store #¡¡?????
     # create a new jugador object and save to db
     @jugador = Jugador.new({:nombre => params[:nombre], :email => params[:email], :total_billetera => 10000})
     @jugador.save
@@ -46,10 +26,25 @@ class JugadorController < ApplicationController
     end
   end
 
+  def edit #GET
+    @jugador = Jugador.find_by_id(params[:id])
+  end
+
+  def update #PUT/PATCH
+    @jugador = Jugador.find(params[:id])
+    if @jugador.update(jugador_params)
+     flash[:notice] = "Jugador actualizado"
+     redirect_to root_path
+    else
+      flash[:notice] = "Ops. Hubo un problema. Porfavor llena todos los campos correctamente."
+      redirect_to jugador_path(@jugador)
+    end
+  end
+
   def destroy #DELETE
     @jugador.destroy
     respond_to do |format|
-      format.html { redirect_to jugador_create_path, notice: "Jugador was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Jugador was successfully destroyed." }
       format.json { head :no_content }
     end
   end

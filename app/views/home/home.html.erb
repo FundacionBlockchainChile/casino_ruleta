@@ -1,0 +1,40 @@
+<h1 class="title">Ruleta</h1>
+<img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
+
+<script>
+        var pusher = new Pusher('b83ca9db118f5993e589', {
+          cluster: 'us2',
+          encrypted: true
+        });
+</script>
+
+  <%= render 'layouts/jugadores_cards' %>
+  <%= render 'layouts/jugadores_list' %>
+
+<script>
+  var channel = pusher.subscribe('jugadores-channel');
+  channel.bind('new-jugador', function(data) {
+    let jugador_id = data.id
+    let jugador_nombre = data.nombre;
+    let jugador_email = data.email;
+    let jugador_total_billetera = data.total_billetera;
+
+    let div = document.getElementById('jugadores_section');
+    let new_content = document.createElement("div");
+    new_content.innerHTML = `
+    <div class="col">
+      <div class="card" style="width: 15rem; color:black;">
+        <div class="card-title">
+          <h2>${jugador_nombre}</h2>
+        </div>
+        <div class="card-body">
+          <p>Email: ${jugador_email}</p>
+          <p>Billetera: ${jugador_total_billetera}</p>
+          <a href="#" class="btn btn-primary btn-sm">Apostar</a>
+          <a href="#" class="btn btn-primary btn-sm">Abandonar Mesa</a>
+        </div>
+      </div>
+    </div>`;
+    div.insertBefore(new_content, div.firstChild);
+    });
+</script>

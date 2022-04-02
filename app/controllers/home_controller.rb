@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def home
     @jugadores = Jugador.all.order("created_at DESC")
   end
 end
