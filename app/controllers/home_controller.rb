@@ -10,4 +10,5 @@ class HomeController < ApplicationController
     @jugadores = Jugador.all.order("created_at DESC")
     @seven_days_weather = WeatherService.new(santiago_lat,santiago_lon).get_weather()
   end
+
 end
