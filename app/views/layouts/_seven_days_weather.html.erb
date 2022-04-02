@@ -1,0 +1,17 @@
+<div  class="container my-4 content_box"
+        style="">
+    <h1 style="margin-top: 20px;">Pronostico 8 dias</h1>
+      <div id="weather_section" class="row row-cols-7 row-cols-md-7 g-1 p-2">
+        <% @seven_days_weather.each do |dia| %>
+          <div class="col">
+            <div class="card p-1" style="width: 7rem; color:white; background:black; border: 1px solid white; ">
+              <div class="card-title">
+                <img src="<%= dia[:icon_img] %>" alt="icon" style="width: 50px;">
+                <p>Min: <%= dia[:min] %></p>
+                <p>Max: <%= dia[:max] %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+</div>

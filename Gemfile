@@ -32,6 +32,10 @@ gem 'pusher'
 
 gem 'byebug'
 
+gem 'rest-client'
+
+gem 'dotenv'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
