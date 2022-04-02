@@ -1,6 +1,3 @@
-<h1 class="title">Ruleta</h1>
-<img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
-
 <script>
         var pusher = new Pusher('b83ca9db118f5993e589', {
           cluster: 'us2',
@@ -8,9 +5,13 @@
         });
 </script>
 
-  <%= render 'layouts/seven_days_weather' %>
-  <%= render 'layouts/jugadores_cards' %>
-  <%= render 'layouts/jugadores_list' %>
+
+
+<h1 class="title">Ruleta</h1>
+<%= render 'layouts/seven_days_weather' %>
+<img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
+<%= render 'layouts/jugadores_cards' %>
+<%= render 'layouts/jugadores_list' %>
 
 <script>
   var channel = pusher.subscribe('jugadores-channel');
