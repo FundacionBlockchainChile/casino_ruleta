@@ -5,6 +5,9 @@ Dotenv.load
 
 class HomeController < ApplicationController
   def home
+    jugador = Jugador.new
+    jugador.total_billetera = 10000
+    byebug
     santiago_lat=-33.4569
     santiago_lon=-70.6483
     @jugadores = Jugador.all.order("created_at DESC")

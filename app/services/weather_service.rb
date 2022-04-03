@@ -1,12 +1,13 @@
 class WeatherService
   # Mejoras: Dejar como default valores para santiago, separar la lógica de parseo a metodo propio
-  def initialize(lat, long)
+  def initialize(lat=-33.4569, long=-70.6483)
     @lat = lat
     @long = long
   end
 
   def get_weather
-    url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
+    url = 'https://api.openweathermap.org/data/2.5/onecall?units=metric&lat=-33.4569&lon=-70.6483&exclude=hourly,minutely,alerts&appid=a1fc67faf832b6f86b82bc0cd9cffeb3'
+    # url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
     @response =  RestClient.get url
     @response =  JSON.parse(@response.body)['daily']
     @weather = []
