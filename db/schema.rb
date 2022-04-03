@@ -14,9 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
   create_table "bets", force: :cascade do |t|
     t.integer "round_id", null: false
     t.integer "jugador_id", null: false
-    t.string "jugador_name"
     t.integer "bet_ammount"
-    t.integer "bet_number"
+    t.string "bet_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jugador_id"], name: "index_bets_on_jugador_id"
@@ -30,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-Juga
+
   create_table "roullettes", force: :cascade do |t|
     t.integer "roullette_wallet"
     t.integer "time_delay"

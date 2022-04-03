@@ -1,0 +1,27 @@
+<div class="container p-4 bg-warning my-4" style="text-align: center; max-width: 900px; border: 1px solid white;border-radius: 20px;">
+  <h1>Nueva Apuesta de <%= @jugador.nombre.titleize %></h1>
+  <p><strong>LLena y Suscribe el formulario para crear una apuesta</strong></p>
+
+  <form method="POST" action="/bet" enctype="multipart/form-data">
+    <div class="form-group my-4" style="display: none;">
+      <label for="jugador_id">Jugador ID</label>
+      <input type="text" name="jugador_id" class="form-control" style="max-width: 400px;margin:auto;" value="<%= @jugador.id %>" />
+    </div>
+    <div class="form-group my-4">
+      <label for="bet_ammount">Cantidad a Apostar</label>
+      <input type="number" name="bet_ammount" class="form-control" value="1000" style="max-width: 400px;margin:auto;" />
+    </div>
+    <div class="form-group my-4">
+      <label for="bet_color">Color</label>
+      <select name="bet_color" class="form-select" style="max-width: 400px;margin:auto;">
+        <option value="red">Red</option>
+        <option value="black">Black</option>
+        <option value="green">Green</option>
+      </select>
+    </div>
+    <div class="from-group">
+      <div><input type="submit" value="Apostar" class="btn btn-danger"/></div>
+    </div>
+  </form>
+
+</div>

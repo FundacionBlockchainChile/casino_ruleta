@@ -21,7 +21,6 @@ class JugadorController < ApplicationController
       redirect_to('/')
     else
       flash[:notice] = "Porfavor llena los campos correctamente e intenta denuevo."
-      print(@jugador.errors)
       redirect_to jugador_create_path(@jugador)
     end
   end

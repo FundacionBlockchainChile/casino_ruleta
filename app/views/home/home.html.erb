@@ -5,16 +5,24 @@
         });
 </script>
 
+<% if notice %>
+  <p id="notice" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </p>
+<% end %>
 
 
 <h1 class="title">Ruleta</h1>
 <%= render 'layouts/seven_days_weather' %>
 <img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
+<%= render 'layouts/bets' %>
 <%= render 'layouts/jugadores_cards' %>
 <%= render 'layouts/jugadores_list' %>
 
 <script>
   var channel = pusher.subscribe('jugadores-channel');
+
   channel.bind('new-jugador', function(data) {
     let jugador_id = data.id
     let jugador_nombre = data.nombre;
@@ -39,4 +47,6 @@
     </div>`;
     div.insertBefore(new_content, div.firstChild);
     });
+
+
 </script>
