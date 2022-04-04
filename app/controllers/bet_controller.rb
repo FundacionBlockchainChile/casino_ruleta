@@ -14,13 +14,13 @@ class BetController < ApplicationController
     @bet.save
     # trigger an event with pusher
     if @bet.save
-      # broadcasting posts using pusher
-      # Pusher.trigger('bets-channel','new-bet', {
-      #   id: @bet.id,
-      #   nombre: @bet.nombre,
-      #   email: @bet.email,
-      #   total_billetera: @bet.total_billetera
-      # })
+      # broadcasting bets using pusher
+      Pusher.trigger('bets-channel','new-bet', {
+        id: @bet.id,
+        nombre: @bet.nombre,
+        email: @bet.email,
+        total_billetera: @bet.total_billetera
+      })
       redirect_to('/')
     else
       flash[:notice] = "Porfavor llena los campos correctamente e intenta denuevo."

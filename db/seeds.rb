@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Roullette.create(roullette_wallet:0,time_delay:60)
+Round.create(roullette_id:Roullette.last.id,winner_color:'red')
+Round.create(roullette_id:Roullette.last.id,winner_color:'green')
+Round.create(roullette_id:Roullette.last.id,winner_color:'black')
+Jugador.create(nombre: 'Test Name', email: 'test@example.com',total_billetera:10000)
+Bet.create(round_id: Round.last.id, jugador_id: Jugador.last.id, bet_ammount: 1000, bet_color: 'green')
+

@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bets", force: :cascade do |t|
-    t.integer "round_id", null: false
-    t.integer "jugador_id", null: false
+    t.bigint "round_id", null: false
+    t.bigint "jugador_id", null: false
     t.integer "bet_ammount"
     t.string "bet_color"
     t.datetime "created_at", null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.integer "roullette_id", null: false
+    t.bigint "roullette_id", null: false
     t.string "winner_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
