@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :jugador
   resources :bet
   root 'home#home'
+  get 'playersbets', to: 'home#makebets'
+  get 'paybets', to: 'home#paybets'
 end

@@ -28,7 +28,7 @@ class Round < ApplicationRecord
   end
 
   def make_new_round
-    Round.create(roullette_id: 1)
+    Round.create(roullette_id: Roullette.last.id)
   end
 
   # JUGAR RONDA
@@ -37,15 +37,33 @@ class Round < ApplicationRecord
     self.make_new_round
     # Hacer apuestas iniciales
     self.make_all_players_inicial_bets
-    # Esperar Tres Minutos
-    sleep(3.minutes)
-    # Seleccionar color ganador
+    # Seleccionar ganador
+    self.select_winner
+  end
+
+  # Seleccionar color ganador
+  def select_winner
     winner_color = self.get_round_color_winner
     Round.last.update(winner_color: winner_color)
-    # Mostrar resultados
-
-    
-    # pagar_apuesas pay_bets
-    # eliminar_apuesta
   end
+
+  def pay_bets
+    bets = Bet.where("round_id = #{Round.last.id}")
+    color_winner = Round.last.winner_color
+
+    for bet in bets
+      jugador = Jugador.find(bet.jugador_id)
+
+      if bet.bet_color == color_winner && winner_color == 'green'
+        jugador.total_billetera = jugador.total_billetera + (bet.bet_ammount * 15)
+      elsif bet.bet_color == color_winner
+        jugador.total_billetera = jugador.total_billetera + (bet.bet_ammount * 2)
+      else
+        jugador.total_billetera = jugador.total_billetera - bet.bet_ammount
+      end
+
+      jugador.save
+    end      
+  end   
+
 end

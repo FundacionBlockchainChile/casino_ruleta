@@ -35,7 +35,7 @@ nav {
   justify-content: center;
   align-items: center;
   background-color: 'red' !important;
-  height: 350px;
+  min-height: 350px;
 }
 
 .results_box .left_box {
@@ -63,4 +63,46 @@ nav {
 .results_box .right_box {
   height: 100%;
   width: 35%;
+}
+
+.animate {
+  animation: mymove 1s infinite;
+}
+
+@media (max-width: 600px) {
+  .results_box {
+    flex-direction: column;
+  }
+
+  .results_box .left_box {
+    width: 100%;
+  }
+
+  .results_box .center_box {
+    width: 100%;
+  }
+
+  .results_box .right_box {
+    width: 100%;
+  }
+
+  .hide-small {
+    display: none;
+  }
+}
+
+@keyframes mymove {
+  from {
+    -webkit-box-shadow: 0 0 40px yellow;
+    -moz-box-shadow: 0 0 40px yellow;
+    box-shadow: 0 0 40px yellow;
+    border: 5px solid yellow;
+  }
+
+  to {
+    -webkit-box-shadow: 0 0 40px rgba(255, 255, 0, 0);
+    -moz-box-shadow: 0 0 40px rgba(255, 255, 0, 0);
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0);
+    border: 5px solid rgba(255, 255, 0, 0);
+  }
 }

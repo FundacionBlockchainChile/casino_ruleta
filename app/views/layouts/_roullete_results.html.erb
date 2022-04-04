@@ -1,13 +1,15 @@
 <div class="container my-4 content_box results_box">
-  <div class="left_box p-4">
+  <div id="roullete_results" class="left_box p-4">
     <p>Ultimo Color Ganador:</p>
-    <h1 style="background:<%= @previous_rounds_winners.last.winner_color.titleize %>; margin:5px"><%= @previous_rounds_winners.last.winner_color.titleize %></h1>
+    <h1 class="animate" style="background:<%= @previous_rounds_winners.last.winner_color.titleize %>; margin:5px"><%= @previous_rounds_winners.last.winner_color.titleize %></h1>
+    <%= link_to "Jugar Ronda", playersbets_path, :class => "btn btn-danger" %>
+    <%= link_to "Pagar Ronda", paybets_path, :class => "btn btn-success" %> 
   </div>
   <div class="center_box"><img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt=""></div>
   <div class="right_box p-4">
     <h4>Resultados Anteriores</h4>
     <div>
-      <% @previous_rounds_winners.each do |round| %>
+      <% @previous_rounds_winners.reverse_each do |round| %>
           <p style="background:<%= round.winner_color  %>; margin:3px; border: 1px solid gray;"><%= round.winner_color.titleize  %></p>
         <% end %>
     </div>

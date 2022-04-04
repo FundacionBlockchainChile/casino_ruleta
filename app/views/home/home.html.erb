@@ -22,6 +22,7 @@
 
 <script>
   var channel = pusher.subscribe('jugadores-channel');
+  var channel = pusher.subscribe('resultados-channel');
 
   channel.bind('new-jugador', function(data) {
     let jugador_id = data.id
@@ -44,6 +45,18 @@
         </div>
       </div>
     </div>`;
+    div.insertBefore(new_content, div.firstChild);
+    });
+
+  channel.bind('new-winner', function(data) {
+    let winner_color = data.winner_color
+
+    let div = document.getElementById('roullete_results');
+    let new_content = document.createElement("div");
+    new_content.innerHTML = `
+    <p>Nuevo Resultado</p>
+    <h1 style="background:${winner_color}; margin:5px; border:5px solid yellow">${winner_color}</h1>
+    <a href="/playersbets" class="btn btn-success btn-sm">Hacer Ronda Apuestas</a>`;
     div.insertBefore(new_content, div.firstChild);
     });
 

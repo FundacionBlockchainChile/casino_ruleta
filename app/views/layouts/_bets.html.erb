@@ -6,7 +6,7 @@
           <th>Nombre Jugador</th>
           <th>Monto Apuesta</th>
           <th>Color Apostado</th>
-          <th colspan="3"></th>
+          <%# <th colspan="3"></th> %>
         </tr>
       </thead>
 
@@ -16,8 +16,12 @@
             <td><%= bet.nombre.titleize %></td>
             <td><%= number_to_currency(bet.bet_ammount, unit: '$ ', delimiter: '.', precision: 0)  %></td>
             <td ><p style="background:<%= bet.bet_color %>"><%= bet.bet_color.titleize %></p></td>
-            <td><%= link_to 'Edit', edit_bet_path(bet), data: { "turbo-method": :get, confirm: "Are you sure?" }, class: "btn btn-outline-light btn-sm" %></td>          
-            <td><%= link_to "Delete", bet_path(bet), data: { "turbo-method": :delete, confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>          
+
+            <%# <td><%= link_to 'Edit', edit_bet_path(bet), data: { "turbo-method": :get, confirm: "Are you sure?" }, class: "btn btn-outline-light btn-sm" %>
+            <%# </td>           %>
+            <%# <td><%= link_to "Delete", bet_path(bet), data: { "turbo-method": :delete, confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %> 
+            <%# </td>          %>
+
           </tr>
         <% end %>
       </tbody>
