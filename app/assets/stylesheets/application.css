@@ -14,7 +14,7 @@ nav {
   top: 0;
   left: 0;
   background: black;
-  background-image: url("https://media.istockphoto.com/photos/roulette-picture-id1266741275?k=20&m=1266741275&s=612x612&w=0&h=63zNalWSwL3fvBqgxiJ8JjdY3Aw2TOD-VivqRexx7mU=");
+  background-image: url("background_01.jpg");
   z-index: -1000;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,4 +28,39 @@ nav {
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.7);
   max-width: 1200px;
+}
+
+.results_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: 'red' !important;
+  height: 350px;
+}
+
+.results_box .left_box {
+  height: 100%;
+  width: 35%;
+}
+
+.results_box .left_box td {
+  padding: 0 !important;
+  border: none;
+}
+
+.results_box .center_box {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results_box .center_box img {
+  width: 100%;
+}
+
+.results_box .right_box {
+  height: 100%;
+  width: 35%;
 }

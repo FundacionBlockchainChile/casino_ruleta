@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192700) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "roullette_id", null: false
-    t.integer "winner_number"
+    t.string "winner_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["roullette_id"], name: "index_rounds_on_roullette_id"

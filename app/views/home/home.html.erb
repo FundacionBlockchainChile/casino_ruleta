@@ -15,7 +15,7 @@
 
 <h1 class="title">Ruleta</h1>
 <%= render 'layouts/seven_days_weather' %>
-<img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt="">
+<%= render 'layouts/roullete_results' %>
 <%= render 'layouts/bets' %>
 <%= render 'layouts/jugadores_cards' %>
 <%= render 'layouts/jugadores_list' %>
@@ -33,15 +33,14 @@
     let new_content = document.createElement("div");
     new_content.innerHTML = `
     <div class="col">
-      <div class="card" style="width: 15rem; color:black;">
+      <div class="card p-1" style="width: 12rem; color:white; background:black; border: 1px solid white; ">
         <div class="card-title">
-          <h2>${jugador_nombre}</h2>
+          <h5>${jugador_nombre}</h5>
         </div>
-        <div class="card-body">
-          <p>Email: ${jugador_email}</p>
+        <div class="card-body d-grid gap-2">
           <p>Billetera: ${jugador_total_billetera}</p>
-          <a href="#" class="btn btn-primary btn-sm">Apostar</a>
-          <a href="#" class="btn btn-primary btn-sm">Abandonar Mesa</a>
+          <a href="/bet/new.${jugador_id}" class="btn btn-success btn-sm">Apostar</a>
+          <a data-method="delete" href="/jugador/${jugador_id}" class="btn btn-danger btn-sm">Abandonar Mesa</a>
         </div>
       </div>
     </div>`;

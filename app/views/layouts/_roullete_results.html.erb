@@ -1,0 +1,15 @@
+<div class="container my-4 content_box results_box">
+  <div class="left_box p-4">
+    <p>Ultimo Color Ganador:</p>
+    <h1 style="background:<%= @previous_rounds_winners.last.winner_color.titleize %>; margin:5px"><%= @previous_rounds_winners.last.winner_color.titleize %></h1>
+  </div>
+  <div class="center_box"><img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt=""></div>
+  <div class="right_box p-4">
+    <h4>Resultados Anteriores</h4>
+    <div>
+      <% @previous_rounds_winners.each do |round| %>
+          <p style="background:<%= round.winner_color  %>; margin:3px; border: 1px solid gray;"><%= round.winner_color.titleize  %></p>
+        <% end %>
+    </div>
+  </div>
+</div>
