@@ -1,0 +1,23 @@
+<div class="container my-4 content_box p-4" style="">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>Ronda</th>
+          <th>Color Ganador</th>
+          <th>Color Apostado</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @previousrounds.each do |round| %>
+          <tr> 
+            <td><%= round.round_id %></td>
+            <td style="background:<%= round.winner_color %>"><%= round.winner_color %></td>
+            <td style="background:<%= round.bet_color %>"><%= round.bet_color %></td>
+            <td><%= round.bet_ammount %></td>       
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>

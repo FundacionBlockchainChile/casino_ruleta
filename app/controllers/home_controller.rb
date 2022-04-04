@@ -15,6 +15,10 @@ class HomeController < ApplicationController
     # redirect_to playersbets_path
   end
 
+  def previousrounds
+    @previousrounds = Round.select('*').joins(:bets).order("round_id DESC")
+  end
+
   def makebets
     round = Round.new
     round.play_new_round
