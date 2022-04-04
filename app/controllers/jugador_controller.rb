@@ -12,12 +12,12 @@ class JugadorController < ApplicationController
     # trigger an event with pusher
     if @jugador.save
       # broadcasting posts using pusher
-      Pusher.trigger('jugadores-channel','new-jugador', {
-        id: @jugador.id,
-        nombre: @jugador.nombre,
-        email: @jugador.email,
-        total_billetera: @jugador.total_billetera
-      })
+      # Pusher.trigger('jugadores-channel','new-jugador', {
+      #   id: @jugador.id,
+      #   nombre: @jugador.nombre,
+      #   email: @jugador.email,
+      #   total_billetera: @jugador.total_billetera
+      # })
       redirect_to('/')
     else
       flash[:notice] = "Porfavor llena los campos correctamente e intenta denuevo."
