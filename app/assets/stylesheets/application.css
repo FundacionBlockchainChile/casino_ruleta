@@ -93,10 +93,10 @@ nav {
 
 @keyframes mymove {
   from {
-    -webkit-box-shadow: 0 0 40px yellow;
-    -moz-box-shadow: 0 0 40px yellow;
-    box-shadow: 0 0 40px yellow;
-    border: 5px solid yellow;
+    -webkit-box-shadow: 0 0 40px rgba(255, 255, 0, 0.99);
+    -moz-box-shadow: 0 0 40px rgba(255, 255, 0, 0.99);
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.99);
+    border: 5px solid rgba(255, 255, 0, 0.938);
   }
 
   to {

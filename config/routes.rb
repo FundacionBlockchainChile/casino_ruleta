@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   resources :bet
   root 'home#home'
   get 'previousrounds', to: 'home#previousrounds'
-  get 'playersbets', to: 'home#makebets'
-  get 'paybets', to: 'home#paybets'
+  get 'playround', to: 'home#playround'
 end

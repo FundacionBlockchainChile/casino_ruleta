@@ -19,21 +19,9 @@ class HomeController < ApplicationController
     @previousrounds = Round.select('*').joins(:bets).order("round_id DESC")
   end
 
-  def makebets
+  def playround
     round = Round.new
     round.play_new_round
-    redirect_to root_path
-  end
-
-  def selectwinner
-    round = Round.new
-    round.select_winner
-    redirect_to root_path
-  end
-
-  def paybets
-    round = Round.new
-    round.pay_bets
     redirect_to root_path
   end
 
