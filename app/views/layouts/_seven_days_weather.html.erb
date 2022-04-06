@@ -1,14 +1,15 @@
 <div  class="container my-4 content_box hide-small"
         style="">
     <h5 style="margin-top: 20px;">Pronostico del Clima próximos 8 días</h5>
-      <div id="weather_section" class="row row-cols-7 row-cols-md-7  g-1 p-2">
-        <% @seven_days_weather.each do |dia| %>
-          <div class="col">
-            <div class="card p-1" style="width: 7rem; color:white; background:black; border: 1px solid white; ">
-              <div class="card-content">
+      <div id="weather_section" class="row row-cols-7 row-cols-md-7  g-1 p-2" style="margin:auto;">
+        <% @seven_days_weather.each_with_index do |dia, index| %>
+          <div class="col" style="margin:0 !important; ">
+            <div class="p-1 m-1 hover_yellow_border" style="width: 100%; color:white; background:black;border: 1px solid gray;">
+              <div class="">
+                <p style="font-size: .8rem;"><%= (Date.today + index).strftime("%A") %></p>
                 <img src="<%= dia[:icon_img] %>" alt="icon" style="width: 50px;">
-                <p>Min: <%= dia[:min] %>º</p>
-                <p>Max: <%= dia[:max] %>º</p>
+                <p style="font-size: .7rem;">Míx: <%= dia[:min] %>º</p>
+                <p style="font-size: .7rem;">Máx: <%= dia[:max] %>º</p>
               </div>
             </div>
           </div>

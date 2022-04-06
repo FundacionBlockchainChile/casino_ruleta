@@ -1,8 +1,11 @@
-<div class="container my-4 content_box results_box">
+<div class="container my-4 content_box results_box bg-success">
   <div id="roullete_results" class="left_box p-4">
     <p>Ultimo Color Ganador:</p>
     <h1 class="animate" style="background:<%= @previous_rounds_winners.last.winner_color.titleize %>; margin:5px"><%= @previous_rounds_winners.last.winner_color.titleize %></h1>
     <%= link_to "Jugar Ronda", playround_path, :class => "btn btn-danger" %>
+    <h3>Proxima Ronda en:</h3>
+    <h1 id='seconds-counter'></h1>
+    <p>Segundos</p>
   </div>
   <div class="center_box"><img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt=""></div>
   <div class="right_box p-4">
@@ -12,8 +15,27 @@
           <p class="<%=
             if index == 8 
               'animate'
-            end %>" style="background:<%= round.winner_color  %>; margin:3px; border: 1px solid gray;"><%= round.winner_color.titleize  %></p>
+            end %> hover_yellow_border" style="background:<%= round.winner_color  %>; margin:3px; border: 1px solid gray;"><%= round.winner_color.titleize  %></p>
         <% end %>
     </div>
   </div>
 </div>
+
+
+
+<script>
+let seconds = 15;
+var el = document.getElementById('seconds-counter');
+
+const set_counter = () => seconds = 15
+
+function incrementSeconds() {
+    if (seconds < 1) { 
+      set_counter()
+    };
+    seconds -= 1;
+    el.innerText = seconds;
+}
+
+var cancel = setInterval(incrementSeconds, 1000);
+</script>

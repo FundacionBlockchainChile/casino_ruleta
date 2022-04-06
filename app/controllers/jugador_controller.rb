@@ -11,7 +11,7 @@ class JugadorController < ApplicationController
     @jugador.save
     # trigger an event with pusher
     if @jugador.save
-      # broadcasting posts using pusher
+      # broadcasting jugador using pusher
       Pusher.trigger('jugadores-channel','new-jugador', {
         id: @jugador.id,
         nombre: @jugador.nombre,

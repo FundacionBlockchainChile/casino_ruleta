@@ -8,9 +8,11 @@
 set :output, "#{path}/log/cron_log.log"
 #
 every 3.minutes  do
-  # command "/playround"
   runner "Round.play_new_round"
-  # rake "some:great:rake:task"
+end
+
+every 1.day, at: '0:00 pm' do
+  runner "Round.deposit_to_all_players"
 end
 #
 # every 4.days do

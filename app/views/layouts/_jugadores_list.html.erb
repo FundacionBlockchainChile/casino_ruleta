@@ -10,9 +10,9 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="jugadores_list">
         <% @jugadores.each do |jugador| %>
-          <tr> 
+          <tr class="hover_yellow_border"> 
             <td><%= jugador.nombre.titleize %></td>
             <td class="hide-small"><%= jugador.email %></td>
             <td><%= number_to_currency(jugador.total_billetera, unit: '$ ', delimiter: '.', precision: 0)  %></td>
@@ -23,3 +23,28 @@
       </tbody>
     </table>
   </div>
+
+    <script>
+  var channel = pusher.subscribe('jugadores-channel');
+
+  channel.bind('new-jugador', function(data) {
+    let jugador_id = data.id
+    let jugador_nombre = data.nombre;
+    let jugador_email = data.email;
+    let jugador_total_billetera = data.total_billetera;
+
+    let div = document.getElementById('jugadores_list');
+    let new_content = document.createElement("tr");
+    new_content.setAttribute('class','hover_yellow_border')
+    new_content.innerHTML = `
+      <td>${jugador_nombre}</td>
+      <td class="hide-small">${jugador_email}</td>
+      <td>${jugador_total_billetera}</td>
+      <td><a href="/jugador/${jugador_id}/edit"  class="btn btn-warning btn-sm">Edit</a></td>
+      <td><a href="/jugador/${jugador_id}" data-method="delete" class="btn btn-danger btn-sm">Delete</a></td>
+    `;
+    div.insertBefore(new_content, div.firstChild);
+
+    });
+
+</script>

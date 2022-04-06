@@ -12,10 +12,10 @@
 
       <tbody>
         <% @bets.each do |bet| %>
-          <tr> 
+          <tr class="hover_yellow_border"> 
             <td><%= bet.nombre.titleize %></td>
             <td><%= number_to_currency(bet.bet_ammount, unit: '$ ', delimiter: '.', precision: 0)  %></td>
-            <td ><p style="background:<%= bet.bet_color %>"><%= bet.bet_color.titleize %></p></td>
+            <td ><p  style="background:<%= bet.bet_color %>"><%= bet.bet_color.titleize %></p></td>
 
             <%# <td><%= link_to 'Edit', edit_bet_path(bet), data: { "turbo-method": :get, confirm: "Are you sure?" }, class: "btn btn-outline-light btn-sm" %>
             <%# </td>           %>
