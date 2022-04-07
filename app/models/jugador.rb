@@ -65,6 +65,14 @@ class Jugador < ApplicationRecord
     Bet.create(round_id: Round.last.id, jugador_id: jugador_id, bet_ammount: bet_ammount, bet_color: bet_color )
   end
 
+  def self.deposit_to_all_players(ammount = 10000)
+    jugadores = Jugador.all
+    for jugador in jugadores
+      jugador.total_billetera = jugador.total_billetera + ammount
+      jugador.save
+    end
+  end
+
 end
 
 # (byebug) jugador = Jugador.create(nombre:'mrBets',email:'srbets@example.com',total_billetera:10000)

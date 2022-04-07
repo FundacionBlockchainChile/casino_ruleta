@@ -10,3 +10,4 @@ set :output, "#{path}/log/cron_log.log"
 every 3.minutes do
   rake 'rounds:create_new_round'
 end
+

@@ -54,14 +54,6 @@ class Round < ApplicationRecord
     end      
   end
 
-  def deposit_to_all_players(ammount = 10000)
-    jugadores = Jugador.all
-    for jugador in jugadores
-      jugador.total_billetera = jugador.total_billetera + ammount
-      jugador.save
-    end
-  end
-
   # JUGAR RONDA
   def play_new_round
     # crear nueva ronda
