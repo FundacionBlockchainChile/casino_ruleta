@@ -23,6 +23,9 @@ class HomeController < ApplicationController
     round = Round.new
     round.play_new_round
     redirect_to root_path
+    Pusher.trigger('jugadores-channel','new_round', {
+        messagge: 'Nueva Ronda'
+      })
   end
 
 end

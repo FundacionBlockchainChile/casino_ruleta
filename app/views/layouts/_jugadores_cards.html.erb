@@ -3,7 +3,7 @@
     <h1 style="margin-top: 20px;">Jugadores Activos</h1>
       <div id="jugadores_section" class="row row-cols-1 row-cols-md-3  row-cols-lg-5 g-2 p-4">
         <% @jugadores.each do |jugador| %>
-          <div class="col">
+          <div class="col" id="<%=jugador.id%>">
             <div class="card p-1 hover_yellow_border" style="min-width:12rem;width:auto; color:white; background:black; border: 1px solid white; ">
               <div class="card-title">
                 <h5><%= jugador.nombre.titleize %></h5>
@@ -18,9 +18,7 @@
       </div>
 </div>
 
-    <script>
-  var channel = pusher.subscribe('jugadores-channel');
-
+<script>
   channel.bind('new-jugador', function(data) {
     let jugador_id = data.id
     let jugador_nombre = data.nombre;
@@ -30,7 +28,7 @@
     let div = document.getElementById('jugadores_section');
     let new_content = document.createElement("div");
     new_content.innerHTML = `
-    <div class="col">
+    <div class="col" id="${jugador_id}">
       <div class="card p-1" style="min-width:12rem;width:auto; color:white; background:black; border: 1px solid white; ">
         <div class="card-title hover_yellow_border">
           <h5>${jugador_nombre}</h5>
@@ -42,7 +40,12 @@
       </div>
     </div>`;
     div.insertBefore(new_content, div.firstChild);
-
     });
+
+  channel.bind('deleted-jugador', function(data) {
+    let jugador_id = data.id
+    let jugador_card = document.getElementById(jugador_id);
+    jugador_card.remove()
+  });
 
 </script>

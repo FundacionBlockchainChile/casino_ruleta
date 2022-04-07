@@ -24,18 +24,23 @@
 
 
 <script>
-let seconds = 15;
-var el = document.getElementById('seconds-counter');
+  let timer_seconds = 15;
+  var el = document.getElementById('seconds-counter');
+  const set_counter = () => timer_seconds = 15
+  function incrementSeconds() {
+      if (timer_seconds < 1) { 
+        set_counter()
+      };
+      timer_seconds -= 1;
+      el.innerText = timer_seconds;
+  }
+  var cancel = setInterval(incrementSeconds, 1000);
+</script>
 
-const set_counter = () => seconds = 15
-
-function incrementSeconds() {
-    if (seconds < 1) { 
-      set_counter()
-    };
-    seconds -= 1;
-    el.innerText = seconds;
-}
-
-var cancel = setInterval(incrementSeconds, 1000);
+<script>
+  channel.bind('new_round', function(data) {
+      let messagge = data.messagge
+      console.log(messagge)
+      fetch("/")
+  });
 </script>

@@ -42,6 +42,9 @@ class JugadorController < ApplicationController
 
   def destroy #DELETE
     @jugador.destroy
+    Pusher.trigger('jugadores-channel','deleted-jugador', {
+        id: @jugador.id
+      })
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Jugador was successfully destroyed." }
       format.json { head :no_content }

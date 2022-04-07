@@ -96,14 +96,14 @@ nav {
   }
 }
 
-@keyframes mymove {
+@keyframes yellow_border {
   from {
-    box-shadow: 0 0 40px rgba(255, 255, 0, 1);
-    border: 5px solid rgba(255, 255, 0, 1);
+    box-shadow: 0 0 40px rgba(255, 255, 0, 1) ;
+    border: 5px solid rgba(255, 255, 0, 1) ;
   }
 
   to {
-    box-shadow: 0 0 40px rgba(255, 255, 0, 0);
-    border: 5px solid rgba(255, 255, 0, 0);
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0) ;
+    border: 5px solid rgba(255, 255, 0, 0) ;
   }
 }
