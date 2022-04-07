@@ -8,7 +8,7 @@ class Round < ApplicationRecord
 
   # metohod inicial_bets 
     # selleciona cada jugador y realiza una apuesta
-  def make_all_players_inicial_bets
+  def make_all_players_bets
     players = Jugador.all
     for player in players
       player.make_bet
@@ -58,10 +58,10 @@ class Round < ApplicationRecord
   def play_new_round
     # crear nueva ronda
     self.make_new_round
-    # Hacer apuestas iniciales
-    self.make_all_players_inicial_bets
     # Seleccionar ganador
     self.select_winner
+    # Hacer apuestas
+    self.make_all_players_bets
     # Paga todas las apuestas
     self.pay_bets
   end
