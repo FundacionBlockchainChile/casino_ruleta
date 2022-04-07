@@ -14,7 +14,8 @@ class WeatherService
   end
 
   def get_weather
-    url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
+    # url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
+    url = 'https://api.openweathermap.org/data/2.5/onecall?units=metric&lat=-33.4569&lon=-70.6483&exclude=hourly,minutely,alerts&appid=a1fc67faf832b6f86b82bc0cd9cffeb3'
     @response =  RestClient.get url
     @response =  JSON.parse(@response.body)['daily']
     @weather = parse_response(@response)

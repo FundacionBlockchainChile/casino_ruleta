@@ -7,16 +7,6 @@
 #
 set :output, "#{path}/log/cron_log.log"
 #
-every 3.minutes  do
-  runner "Round.play_new_round"
+every 3.minutes do
+  rake 'rounds:create_new_round'
 end
-
-every 1.day, at: '0:00 pm' do
-  runner "Round.deposit_to_all_players"
-end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
-
-# Learn more: http://github.com/javan/whenever

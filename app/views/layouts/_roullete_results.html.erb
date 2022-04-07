@@ -41,6 +41,6 @@
   channel.bind('new_round', function(data) {
       let messagge = data.messagge
       console.log(messagge)
-      fetch("/")
+      window.location.reload(true);
   });
 </script>
