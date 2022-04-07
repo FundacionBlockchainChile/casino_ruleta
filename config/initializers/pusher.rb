@@ -1,9 +1,10 @@
-# config/initializers/pusher.rb
+require 'dotenv'
 require 'pusher'
+Dotenv.load
     
-Pusher.app_id = '1370374'
-Pusher.key = 'b83ca9db118f5993e589'
-Pusher.secret = 'a245ebb6288a8e24ada5'
+Pusher.app_id = ENV["PUSHER_APP_ID"] 
+Pusher.key = ENV["PUSHER_KEY"]
+Pusher.secret = ENV["PUSHER_SECRET"]
 Pusher.cluster = 'us2'
 Pusher.logger = Rails.logger
 Pusher.encrypted = true

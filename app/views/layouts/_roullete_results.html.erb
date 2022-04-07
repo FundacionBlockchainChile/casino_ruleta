@@ -3,9 +3,6 @@
     <p>Ultimo Color Ganador:</p>
     <h1 class="animate" style="background:<%= @previous_rounds_winners.last.winner_color.titleize %>; margin:5px"><%= @previous_rounds_winners.last.winner_color.titleize %></h1>
     <%= link_to "Jugar Ronda", playround_path, :class => "btn btn-danger" %>
-    <h3>Proxima Ronda en:</h3>
-    <h1 id='seconds-counter'></h1>
-    <p>Segundos</p>
   </div>
   <div class="center_box"><img src="https://media.giphy.com/media/GWS8bXKxphfEI/giphy.gif" alt=""></div>
   <div class="right_box p-4">
@@ -20,27 +17,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-  let timer_seconds = 15;
-  var el = document.getElementById('seconds-counter');
-  const set_counter = () => timer_seconds = 15
-  function incrementSeconds() {
-      if (timer_seconds < 1) { 
-        set_counter()
-      };
-      timer_seconds -= 1;
-      el.innerText = timer_seconds;
-  }
-  var cancel = setInterval(incrementSeconds, 1000);
-</script>
-
-<script>
-  channel.bind('new_round', function(data) {
-      let messagge = data.messagge
-      console.log(messagge)
-      window.location.reload(true);
-  });
-</script>
