@@ -18,10 +18,18 @@ class WeatherService
   end
 
   def get_weather
-    url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
-    @response =  RestClient.get url
-    @response =  JSON.parse(@response.body)['daily']
-    @weather = parse_response(@response)
-    return @weather
+    begin
+      url = "#{ENV["URL"]}&appid=#{ENV["API_KEY"]}&lat=#{@lat}&lon=#{@long}"
+      @response =  RestClient.get url
+      @response =  JSON.parse(@response.body)['daily']
+      @weather = parse_response(@response)
+    rescue
+      @weather = []
+      8.times { @weather << { "min": 16, "max": 27, "icon_img": "http://openweathermap.org/img/wn/01d@2x.png" } }
+    ensure 
+      return @weather
+    end
+    
+    
   end
 end
