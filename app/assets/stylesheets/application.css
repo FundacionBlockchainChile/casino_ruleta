@@ -74,6 +74,10 @@ nav {
   border: 5px solid rgba(255, 255, 0, 1) !important;
 }
 
+.win_bet {
+  animation: win_bet 1s infinite;
+}
+
 @media (max-width: 600px) {
   .results_box {
     flex-direction: column;
@@ -94,16 +98,35 @@ nav {
   .hide-small {
     display: none;
   }
+
+  .font_small {
+    font-size: 0.7em;
+  }
 }
 
 @keyframes yellow_border {
   from {
-    box-shadow: 0 0 40px rgba(255, 255, 0, 1) ;
-    border: 5px solid rgba(255, 255, 0, 1) ;
+    box-shadow: 0 0 40px rgba(255, 255, 0, 1);
+    border: 5px solid rgba(255, 255, 0, 1);
   }
 
   to {
-    box-shadow: 0 0 40px rgba(255, 255, 0, 0) ;
-    border: 5px solid rgba(255, 255, 0, 0) ;
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0);
+    border: 5px solid rgba(255, 255, 0, 0);
+  }
+}
+
+@keyframes win_bet {
+  0% {
+    background: green;
+  }
+
+  50% {
+    background: rgba(0, 128, 0, 0.25);
+  }
+
+  100% {
+    background: green;
+    ;
   }
 }
