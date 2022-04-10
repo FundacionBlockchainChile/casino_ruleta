@@ -21,9 +21,9 @@ class Round < ApplicationRecord
     if value > 0 && value < 3
       return 'green'
     elsif value >= 3 && value < 52
-      return 'red'
-    else
       return 'black'
+    else
+      return 'red'
     end
   end
 
